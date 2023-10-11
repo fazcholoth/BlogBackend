@@ -37,7 +37,7 @@ export const registerUser = async(req,res)=>{
     
     try {
 
-        const { url } = await cloudinary.uploader.upload(req?.file?.path);
+        const { url } = await cloudinary?.uploader?.upload(req?.file?.path);
         const Name = req.body.name
         const Password = req.body.password
         const Email = req.body.email

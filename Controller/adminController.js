@@ -9,7 +9,7 @@ import User from "../Model/user.js";
  export const loginAdmin = async (req, res) => {
     
 
-    const {email,password} = req.body
+    const {email,password} = req?.body
   
     
     const adminExists = await admin.findOne({email:email,password:password})
@@ -26,7 +26,7 @@ export const uploadFile = async(req,res)=>{
     
     try {
 
-        const { url } = await cloudinary.uploader.upload(req.file.path);
+        const { url } = await cloudinary?.uploader?.upload(req?.file?.path);
         res.json({success:1,
             file :{
                 url :url
@@ -41,7 +41,7 @@ export const uploadImage = async(req,res)=>{
    
     try {
     
-        const { url } = await cloudinary.uploader.upload(req.file.path);
+        const { url } = await cloudinary?.uploader?.upload(req?.file?.path);
         
         res.status(200).json({image:url})
         return;
@@ -52,7 +52,7 @@ export const uploadImage = async(req,res)=>{
 }
 
 export const uploadBlog = async(req,res)=>{
-    console.log(req.body.content.time);
+    console.log(req.body?.content?.time);
     try {
         const Topic = req.body.topic
         
@@ -97,7 +97,7 @@ export const unlistCategory = async(req,res)=>{
     
     try {
 
-        const catid = req.params.catid
+        const catid = req?.params?.catid
 
        
        const updatedcategory = await topic.findByIdAndUpdate(catid, {listed:false} , {
