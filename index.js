@@ -10,7 +10,7 @@ const app = Express()
 
 
 const corsOptions = {
-    origin: 'https://blocking.onrender.com/',
+    origin: 'https://blocking.onrender.com',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 204,
   };
